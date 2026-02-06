@@ -100,7 +100,7 @@ def main():
         if osvar == "Windows":
                 windows(get_image())
         elif osvar == "Linux":
-                linux(get_image())
+                linux_gnome(get_image())
         else:
             print("\r[-] Status: Sorry, only supporting Windows right now. Feel free to fork and add support ;)", end="")
             
