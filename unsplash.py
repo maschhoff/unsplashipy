@@ -70,7 +70,7 @@ def windows(filepath_absolute):
                 sys.exit(1)
 
 #only xfce4         
-def linux(filepath_absolute):
+def linux_xfce(filepath_absolute):
         #get backdrop path by "xfconf-query -c xfce4-desktop -m" than change wallpaper
         args0 = ["xfconf-query", "-c", "xfce4-desktop", "-p", "/backdrop/screen0/monitorLVDS-1/workspace0/last-image", "-s", filepath_absolute]
         args1 = ["xfconf-query", "-c", "xfce4-desktop", "-p", "/backdrop/screen0/monitorLVDS-1/workspace0/image-style", "-s", "3"]
@@ -80,6 +80,15 @@ def linux(filepath_absolute):
         subprocess.Popen(args2)
         args = ["xfdesktop","--reload"]
         subprocess.Popen(args)
+
+def linux_gnome(filepath_absolute):
+    subprocess.run([
+    "gsettings",
+    "set",
+    "org.gnome.desktop.background",
+    "picture-uri",
+    f"file://{filepath_absolute}"
+])
 
 
 
